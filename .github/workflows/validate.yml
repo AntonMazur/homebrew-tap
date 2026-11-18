@@ -1,0 +1,17 @@
+name: Validate cask
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register local tap
+        run: brew tap antonmazur/tap "$GITHUB_WORKSPACE"
+      - name: Check cask metadata
+        run: brew info --cask antonmazur/tap/smoothwheel
+      - name: Fetch release and verify checksum
+        run: brew fetch --cask antonmazur/tap/smoothwheel
