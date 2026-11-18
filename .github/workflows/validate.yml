@@ -11,6 +11,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Register local tap
         run: brew tap antonmazur/tap "$GITHUB_WORKSPACE"
+      - name: Trust only the cask under test on Homebrew 6 or newer
+        run: |
+          if brew help trust >/dev/null 2>&1; then
+            brew trust --cask antonmazur/tap/smoothwheel
+          fi
       - name: Check cask metadata
         run: brew info --cask antonmazur/tap/smoothwheel
       - name: Fetch release and verify checksum
