@@ -1,6 +1,6 @@
 cask "smoothwheel" do
-  version "0.3.11"
-  sha256 "d4ba9b5221e11c6fc0dd8f0fa217592f731df21370d5e205d4ed57a0f0f295c0"
+  version "0.3.17"
+  sha256 "947446e9473c8ac576b632ba682da138d0b6172c9a0015d35fd1cc82715a5ca2"
 
   url "https://github.com/AntonMazur/SmoothWheel/releases/download/v#{version}/SmoothWheel.zip"
   name "SmoothWheel"
